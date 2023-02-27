@@ -38,11 +38,7 @@ class TimeToWordConverter implements TimeToWordConvertingInterface
 			50	=> 'пятьдесят',
 			60	=> 'шестьдесят',
         ),
-        array(
-            1 => 'час',
-            2 => 'часа',
-            5 => 'часов',
-        ),
+       
         array(
             1 => 'первого',
             2 => 'второго',
@@ -70,7 +66,7 @@ class TimeToWordConverter implements TimeToWordConvertingInterface
             10 => 'десять минут',
             11 => 'одиннадцать минут',
             12 => 'двенадцать минут',
-            13 => 'тренадцать минут',
+            13 => 'тринадцать минут',
             14 => 'четырнадцать минут',
             15 => 'пятнадцать минут',
             16 => 'шестнадцать минут',
@@ -120,21 +116,21 @@ class TimeToWordConverter implements TimeToWordConvertingInterface
             }
             elseif($minutes == 15)
             {
-                $str .= "четверть ".self::$dic[2][$hours + 1];
+                $str .= "четверть ".self::$dic[1][$hours + 1];
             }
             elseif($minutes == 30)
             {
-                $str .= "половина ".self::$dic[2][$hours + 1];
+                $str .= "половина ".self::$dic[1][$hours + 1];
             }
             else
             {
                 if ($minutes < 30)
                 {
-                    $str .= self::$dic[3][$minutes]. " после ".self::$dic[4][$hours];
+                    $str .= self::$dic[2][$minutes]. " после ".self::$dic[3][$hours];
                 }
                 else
                 {
-                    $str .= self::$dic[3][60 - $minutes]. " до ".self::$dic[4][$hours + 1];
+                    $str .= self::$dic[2][60 - $minutes]. " до ".self::$dic[3][$hours + 1];
                 }
             }
             return $str;
@@ -142,11 +138,11 @@ class TimeToWordConverter implements TimeToWordConvertingInterface
         catch (Error)
         {
             echo "поправьте входные данные";
-        
+            return 1;
         }
     }
 }
 
 $p = new TimeToWordConverter();
-$str = $p->convert(2, 00);
+$str = $p->convert(7, 13);
 echo "<h1>$str</h1>";

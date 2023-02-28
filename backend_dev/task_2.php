@@ -5,7 +5,7 @@ class FeedParsingComponent
 {
     public function __construct(string $url_or_file_path, array $settings_list)
     {
-        // получаем объект в формате XML при помощи simplexml_load_file
+        // получаем объект с разобранным XML при помощи simplexml_load_file
         // дескриптор подключения к бд или к облаку с помощью $settings_list
         // дескриптор почты с помощью SendMailSmtpClass
     }

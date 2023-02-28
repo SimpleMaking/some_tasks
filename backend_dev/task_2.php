@@ -1,4 +1,6 @@
 <?
+namespace FeedComponent;
+
 class FeedParsingComponent
 {
     public function __construct(string $url_or_file_path, array $settings_list)
@@ -39,7 +41,7 @@ class FeedParsingComponent
         // вызываем метод отправки сообщения $this->SendEmail();
 
         /*
-        для повышения производительности можно скачивание фото для каждого цветка поместить в свой поток исполнения с помощью модуля pthreads
+        для повышения производительности можно скачивание для каждого цветка поместить в свой поток исполнения с помощью модуля pthreads
         более простого решения для добавления многопоточности компонента не знаю
         */
         

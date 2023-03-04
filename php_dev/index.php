@@ -80,7 +80,8 @@ class ShortestWay
                 $end = $arr_for_graph[$this->end[0]][$this->end[1]];
                 $path = array(); 
                 $this->getPaths($start, $end, $visited, $path, $map_graph); 
-
+                if (empty($this->w))
+                    throw new Exception('невозможно найти расстояние');
                 /*
                 преобразование индексов точек в их значения из исходного массива 
                 */
@@ -114,6 +115,11 @@ class ShortestWay
                 */
                 $shortest_way = min($a_sum);
                 echo "<h1>Самый короткий путь равен $shortest_way ходов</h1>";
+        }
+        catch(Exception $ex)
+        {
+            $msg = $ex->getMessage();
+            echo "<h1>$msg</h1>";
         }
         catch(Error)
         {
